@@ -1,2 +1,2 @@
 # ManagementMargarida
-Management website for an Inflatable Rental company.
+Management website for Insufláveis da Margarida, a portuguese company that rents inflatables.

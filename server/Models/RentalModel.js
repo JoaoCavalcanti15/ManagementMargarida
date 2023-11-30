@@ -39,7 +39,7 @@ const rentalSchema = new mongoose.Schema({
     },
     paymentmethod: {
         type: String,
-        enum: ["transfer", "revolut", "money"],
+        enum: ["Transferência", "MB Way", "Dinheiro"],
         required: [true, "Payment method is required"],
     }
 });

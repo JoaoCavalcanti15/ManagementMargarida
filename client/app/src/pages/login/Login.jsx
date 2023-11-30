@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import "./Login.css"; 
+import logo from "../images/logo.jpg";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -9,7 +12,7 @@ const Login = () => {
     username: "",
     password: "",
   });
-  const { username, password } = inputValue;
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
@@ -37,7 +40,7 @@ const Login = () => {
         },
         { withCredentials: true }
       );
-      console.log(data);
+
       const { success, message } = data;
       if (success) {
         handleSuccess(message);
@@ -58,7 +61,11 @@ const Login = () => {
   };
 
   return (
-    <div className="form_container">
+    <div className="form-container">
+      <div className="header">
+        <img src={logo} alt="Logo" className="logo" />
+        <div className="page-name">Login Account</div>
+      </div>
       <h2>Login Account</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -66,8 +73,7 @@ const Login = () => {
           <input
             type="text"
             name="username"
-            value={username}
-            placeholder="Enter your username"
+            value={inputValue.username}
             onChange={handleOnChange}
           />
         </div>
@@ -76,8 +82,7 @@ const Login = () => {
           <input
             type="password"
             name="password"
-            value={password}
-            placeholder="Enter your password"
+            value={inputValue.password}
             onChange={handleOnChange}
           />
         </div>

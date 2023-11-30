@@ -1,5 +1,2 @@
-export {default as Login} from './Login'
-export {default as Dashboard} from './Dashboard'
-
-
-
+export { default as Login } from './login/Login';
+export { default as Dashboard } from './dashboard/Dashboard';

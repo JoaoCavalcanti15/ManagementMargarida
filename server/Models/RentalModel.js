@@ -5,12 +5,12 @@ const rentalSchema = new mongoose.Schema({
         type: String,
         required: [true, "Name is required"],
     },
-    adress: {
+    address: {
         type: String,
-        required: [true, "Adress is required"],
+        required: [true, "Address is required"],
     },
     email: {
-        type: email,
+        type: String,
         required: [true, "Email is required"],
     },
     phonenumber: {
@@ -25,9 +25,23 @@ const rentalSchema = new mongoose.Schema({
         type: Date,
         required: [true, "Pickup time required"],
     },
+    inflatable: {
+        type: String,
+        required: [true, "Inflatable required"],
+    },
     price: {
         type: Number,
         required: [true, "Price required"],
+    },
+    nif: {
+        type: Number,
+        required: [true, "Nif required"],
+    },
+    paymentmethod: {
+        type: String,
+        enum: ["transfer", "revolut", "money"],
+        required: [true, "Payment method is required"],
     }
+});
 
-  });
+module.exports = mongoose.model("Rental", rentalSchema, 'Rental');

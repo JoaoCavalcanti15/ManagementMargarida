@@ -27,25 +27,33 @@ module.exports.Signup = async (req, res, next) => {
 module.exports.Login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
-    if(!username || !password ){
-      return res.json({message:'All fields are required'})
+    
+    if (!username || !password) {
+      return res.status(400).json({ message: 'All fields are required' });
     }
+
     const user = await User.findOne({ username });
-    if(!user){
-      return res.json({message:'Incorrect password or username' }) 
+
+    if (!user) {
+      return res.status(401).json({ message: 'Incorrect password or username' });
     }
-    const auth = await bcrypt.compare(password,user.password)
+
+    const auth = await bcrypt.compare(password, user.password);
+
     if (!auth) {
-      return res.json({message:'Incorrect password or username' }) 
+      return res.status(401).json({ message: 'Incorrect password or username' });
     }
-     const token = createSecretToken(user._id);
-     res.cookie("token", token, {
-       withCredentials: true,
-       httpOnly: false,
-     });
-     res.status(201).json({ message: "User logged in successfully", success: true });
-     next()
+
+    const token = createSecretToken(user._id);
+    
+    res.cookie("token", token, {
+      withCredentials: true,
+      httpOnly: false,
+    });
+
+    res.status(200).json({ message: "User logged in successfully", success: true });
   } catch (error) {
     console.error(error);
+    res.status(500).json({ message: "Internal Server Error", success: false });
   }
-}
+};

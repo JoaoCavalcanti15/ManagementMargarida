@@ -1,0 +1,101 @@
+/* Shared styles */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Login specific styles */
+.login_container {
+  /* Add any specific styles for the login form here */
+}
+
+/* Dashboard specific styles */
+.dashboard_container {
+  /* Add any specific styles for the dashboard form here */
+}
+
+/* Additional styles for new form fields in the Dashboard */
+.container div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.container div label,
+.container div input {
+  margin-bottom: 5px;
+}
+
+.container div input[type="date"],
+.container div input[type="time"] {
+  padding: 10px;
+}
+
+.container div input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.container div input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.container div button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.container div button:hover {
+  background-color: #0056b3;
+}

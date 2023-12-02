@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ManagementMargarida/static/css/main.8696f616.css",
+    "main.js": "/ManagementMargarida/static/js/main.23203906.js",
+    "index.html": "/ManagementMargarida/index.html",
+    "main.8696f616.css.map": "/ManagementMargarida/static/css/main.8696f616.css.map",
+    "main.23203906.js.map": "/ManagementMargarida/static/js/main.23203906.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8696f616.css",
+    "static/js/main.23203906.js"
+  ]
+}

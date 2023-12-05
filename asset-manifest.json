@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/ManagementMargarida/static/css/main.8696f616.css",
-    "main.js": "/ManagementMargarida/static/js/main.23203906.js",
-    "index.html": "/ManagementMargarida/index.html",
-    "main.8696f616.css.map": "/ManagementMargarida/static/css/main.8696f616.css.map",
-    "main.23203906.js.map": "/ManagementMargarida/static/js/main.23203906.js.map"
+    "main.css": "/github.io/ManagementMargarida/static/css/main.54c4f9dd.css",
+    "main.js": "/github.io/ManagementMargarida/static/js/main.ca44c60a.js",
+    "static/media/logo.jpg": "/github.io/ManagementMargarida/static/media/logo.34c92a303513679f61ce.jpg",
+    "index.html": "/github.io/ManagementMargarida/index.html",
+    "main.54c4f9dd.css.map": "/github.io/ManagementMargarida/static/css/main.54c4f9dd.css.map",
+    "main.ca44c60a.js.map": "/github.io/ManagementMargarida/static/js/main.ca44c60a.js.map"
   },
   "entrypoints": [
-    "static/css/main.8696f616.css",
-    "static/js/main.23203906.js"
+    "static/css/main.54c4f9dd.css",
+    "static/js/main.ca44c60a.js"
   ]
 }

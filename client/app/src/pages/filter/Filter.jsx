@@ -16,12 +16,12 @@ const Filter = () => {
     <>
       <div className="header">
         <img src={logo} alt="Logo" className="logo" />
-        <button className="filter-button" onClick={goToDashboard}>
+        <button className="dashboard-button" onClick={goToDashboard}>
           Dashboard
         </button>
       </div>
       <div className="filter-container">
-        <h2>Filter Options</h2>
+        <h2>Filtro de tarefas na Base de Dados</h2>
         <div>
           <label htmlFor="clientName">Client Name:</label>
           <input type="text" id="clientName" name="clientName" />

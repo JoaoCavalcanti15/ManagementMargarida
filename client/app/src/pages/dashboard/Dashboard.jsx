@@ -47,7 +47,7 @@ const Dashboard = () => {
       </div>
       <div className="dashboard-container">
         <div className="form-container">
-          <h2>Rental Information Form</h2>
+          <h2>Inserção de tarefas na Base de Dados</h2>
           <form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name">Client Name</label>

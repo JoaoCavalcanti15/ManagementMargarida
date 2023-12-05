@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import "./Login.css"; 
+import "react-toastify/dist/ReactToastify.css";
+import "./Login.css";
 import logo from "../images/logo.jpg";
-
 
 const Login = () => {
   const navigate = useNavigate();
@@ -32,27 +31,21 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const { data } = await axios.post(
-        "http://localhost:4000/login",
-        {
-          ...inputValue,
-        },
-        { withCredentials: true }
-      );
+    const { username, password } = inputValue;
 
-      const { success, message } = data;
-      if (success) {
-        handleSuccess(message);
-        setTimeout(() => {
-          navigate("/dashboard");
-        }, 1000);
-      } else {
-        handleError(message);
-      }
-    } catch (error) {
-      console.log(error);
+    // Hardcoded credentials (replace with your actual credentials)
+    const hardcodedUsername = "margarida";
+    const hardcodedPassword = "margarida123";
+
+    if (username === hardcodedUsername && password === hardcodedPassword) {
+      handleSuccess("Login successful!"); // Simulate success
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
+    } else {
+      handleError("Invalid credentials"); // Simulate error
     }
+
     setInputValue({
       ...inputValue,
       username: "",

@@ -64,7 +64,6 @@ const Login = () => {
     <div className="form-container">
       <div className="header">
         <img src={logo} alt="Logo" className="logo" />
-        <div className="page-name">Login Account</div>
       </div>
       <h2>Login Account</h2>
       <form onSubmit={handleSubmit}>

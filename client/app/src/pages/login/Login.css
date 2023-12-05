@@ -6,20 +6,6 @@ body {
   background-color: #afdbdf;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #348AA7;
-  padding: 20px;
-  height: 10vh;
-}
-
-.logo {
-  width: 60px;
-  height: auto;
-}
-
 .page-name {
   font-size: 1.5rem;
   font-weight: bold;

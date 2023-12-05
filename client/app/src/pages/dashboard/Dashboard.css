@@ -1,24 +1,30 @@
+.header {
+  justify-content: space-between;
+}
+
+.filter-button {
+  background-color: #afdbdf; /* Same as the background color */
+  color: #4682B4;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, width 0.3s ease;
+  margin-left: auto;
+}
+
+.filter-button:hover {
+  background-color: #8cb4c1; /* Darker version of the background color */
+  width: 20vh; /* Adjust as needed */
+  color: #fff;
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #afdbdf;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #afdbdf;
-  padding: 10px;
-  height: 20vh;
-}
-
-.logo {
-  width: auto;
-  height: 100%;
-  order: 2;
 }
 
 .page-name {

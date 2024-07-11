@@ -7,7 +7,7 @@ module.exports.Rental = async (req, res, next) => {
       address,
       email,
       phonenumber,
-      delivertime,
+      deliverytime,
       pickuptime,
       inflatable,
       price,
@@ -18,36 +18,36 @@ module.exports.Rental = async (req, res, next) => {
     // Check if a rental with the same attributes already exists
     const existingRental = await Rental.findOne({
       name,
-      address,
-      email,
-      phonenumber,
-      delivertime,
-      pickuptime,
-      inflatable,
-      price,
-      nif,
-      paymentmethod
+      nif
     });
 
     if (existingRental) {
       return res.json({ message: "Rental already exists" });
     }
 
-    // If no existing rental, create a new one
-    const rental = await Rental.create({
+    // Parse dates from strings into Date objects
+    const deliveryDate = new Date(deliverytime);
+    const pickupDate = new Date(pickuptime);
+
+    // Create a new rental instance
+    const newRental = new Rental({
       name,
       address,
       email,
-      phonenumber,
-      delivertime,
-      pickuptime,
+      phonenumber,  // Ensure phoneNumber is a number
+      deliverytime: deliveryDate,           // Use parsed Date object
+      pickuptime: pickupDate,              // Use parsed Date object
       inflatable,
       price,
       nif,
       paymentmethod
     });
 
-    res.status(201).json({ message: "Rental created successfully", success: true, rental });
+    // Save rental to database
+    const savedRental = await newRental.save();
+
+    // Respond with success message and saved rental object
+    res.status(201).json({ message: "Rental created successfully", success: true, rental: savedRental });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error", success: false });

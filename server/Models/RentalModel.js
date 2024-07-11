@@ -17,7 +17,7 @@ const rentalSchema = new mongoose.Schema({
         type: Number,
         required: [true, "Phone number is required"],
     },
-    delivertime: {
+    deliverytime: {
         type: Date,
         required: [true, "Deliver time required"],
     },
@@ -26,8 +26,9 @@ const rentalSchema = new mongoose.Schema({
         required: [true, "Pickup time required"],
     },
     inflatable: {
-        type: String,
-        required: [true, "Inflatable required"],
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Inflatable",
+        required: [true, "Inflatable is required"],
     },
     price: {
         type: Number,

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "./Login.css"; 
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import './Login.css'; // Import the CSS file
 import logo from "../images/logo.jpg";
-
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,40 +21,45 @@ const Login = () => {
     });
   };
 
-  const handleError = (err) =>
+  const handleError = (err) => {
+    console.error(err);
     toast.error(err, {
       position: "bottom-left",
     });
-  const handleSuccess = (msg) =>
+  };
+
+  const handleSuccess = (msg) => {
     toast.success(msg, {
       position: "bottom-left",
     });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log('Sending login request:', inputValue);
       const { data } = await axios.post(
         "http://localhost:4000/login",
-        {
-          ...inputValue,
-        },
+        inputValue,
         { withCredentials: true }
       );
+
+      console.log('Received response:', data);
 
       const { success, message } = data;
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          navigate("/dashboard");
+          navigate("/rental-insertion");
         }, 1000);
       } else {
         handleError(message);
       }
     } catch (error) {
-      console.log(error);
+      console.error('Error during login request:', error);
+      handleError('Login failed. Please try again.');
     }
     setInputValue({
-      ...inputValue,
       username: "",
       password: "",
     });
@@ -65,7 +70,7 @@ const Login = () => {
       <div className="header">
         <img src={logo} alt="Logo" className="logo" />
       </div>
-      <h2>Login Account</h2>
+      <h2 className="page-name">Login Account</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username</label>

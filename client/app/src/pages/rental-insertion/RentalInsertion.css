@@ -3,8 +3,8 @@
 }
 
 .filter-button {
-  background-color: #afdbdf; /* Same as the background color */
-  color: #4682B4;
+  background-color: grey; /* Same as the background color */
+  color: black;
   border: none;
   padding: 10px 15px;
   border-radius: 4px;

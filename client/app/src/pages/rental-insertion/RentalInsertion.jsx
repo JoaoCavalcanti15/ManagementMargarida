@@ -246,7 +246,9 @@ const RentalInsertion = () => {
               </select>
               {errors.paymentmethod && <p className="error">{errors.paymentmethod}</p>}
             </div>
-            <button type="submit">Submit Rental</button>
+            <button type="submit" className="submit-button">
+              Submit Rental
+            </button>
           </form>
         </div>
       </div>

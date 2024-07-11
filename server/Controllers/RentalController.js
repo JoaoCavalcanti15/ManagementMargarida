@@ -53,3 +53,32 @@ module.exports.Rental = async (req, res, next) => {
     res.status(500).json({ message: "Internal Server Error", success: false });
   }
 };
+
+exports.getFilteredRentals = async (req, res) => {
+  try {
+    const { name, inflatableName } = req.query;
+    let filter = {};
+
+    if (inflatableName) {
+      // Find the inflatable by name to get its ID
+      const inflatable = await Inflatable.findOne({ name: inflatableName });
+      if (!inflatable) {
+        return res.status(404).json({ error: "Inflatable not found" });
+      }
+      filter.inflatable = inflatable._id;
+    }
+
+    if (name) {
+      // Filter by rental name
+      filter.name = name;
+    }
+
+    // Query rentals based on the filter
+    const rentals = await Rental.find(filter);
+
+    res.status(200).json(rentals);
+  } catch (error) {
+    console.error("Error fetching filtered rentals:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};

@@ -1,16 +1,10 @@
-.header {
-  justify-content: space-between;
-}
-
 .filter-button {
-  background-color: grey; /* Same as the background color */
+  background-color: grey; 
   color: black;
   border: none;
-  padding: 10px 15px;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, width 0.3s ease;
-  margin-left: auto;
 }
 
 .filter-button:hover {
@@ -23,7 +17,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #afdbdf;
 }
 
@@ -55,4 +48,8 @@ body {
   color: red;
   font-size: 0.9em;
   margin-top: 5px;
+}
+
+h2 {
+  color: white;
 }

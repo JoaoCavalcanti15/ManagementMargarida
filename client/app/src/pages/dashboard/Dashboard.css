@@ -1,0 +1,35 @@
+/* src/pages/Dashboard.css */
+
+  .dashboard {
+    text-align: center;
+    margin-top: 25px; /* Adjust margin as needed */
+  }
+  
+  .dashboard-title {
+    font-size: 5vh;
+    margin-bottom: 2vh; /* Adjust margin as needed */
+    font-family: "Red Hat Text", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .inflatable-list {
+    list-style: none;
+    padding: 10vh;
+    margin: 50vh;
+    margin-top: 5vh;
+    font-family: "Red Hat Text", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .inflatable-item {
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }

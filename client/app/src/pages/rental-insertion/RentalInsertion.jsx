@@ -124,9 +124,17 @@ const RentalInsertion = () => {
     }
   };
 
+  // Handler for navigating to the login page
+  const goToLogin = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <div className="header">
+        <button className="logout-button" onClick={goToLogin}>
+          Log Out
+        </button>
         <img src={logo} alt="Logo" className="logo" />
         <button className="filter-button" onClick={() => navigate("/filter")}>
           Filters

@@ -3,21 +3,22 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import './Login.css'; // Import the CSS file
+import './Signup.css'; 
 import logo from "../images/logo.jpg";
 
-const Login = () => {
+const SignUp = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     username: "",
     password: "",
+    isAdmin: false
   });
 
   const handleOnChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setInputValue({
       ...inputValue,
-      [name]: value,
+      [name]: type === 'checkbox' ? checked : value,
     });
   };
 
@@ -38,9 +39,8 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/login",
-        inputValue,
-        { withCredentials: true }
+        "http://localhost:4000/signup",
+        inputValue
       );
   
       const { success, message, user } = data;
@@ -57,12 +57,13 @@ const Login = () => {
         handleError(message);
       }
     } catch (error) {
-      console.error('Error during login request:', error);
-      handleError('Login failed. Please try again.');
+      console.error('Error during signup request:', error);
+      handleError('Sign up failed. Please try again.');
     }
     setInputValue({
       username: "",
       password: "",
+      isAdmin: false
     });
   };
 
@@ -70,7 +71,7 @@ const Login = () => {
     <div className="form-container">
       <div className="header">
         <img src={logo} alt="Logo" className="logo" />
-        <h2 className="page-name">Log In</h2>
+        <h2 className="page-name">Sign Up</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <div>
@@ -91,12 +92,23 @@ const Login = () => {
             onChange={handleOnChange}
           />
         </div>
+        <div>
+          <label htmlFor="isAdmin">
+            <input
+              type="checkbox"
+              name="isAdmin"
+              checked={inputValue.isAdmin}
+              onChange={handleOnChange}
+            />
+            Sign up as admin
+          </label>
+        </div>
         <button type="submit">Submit</button>
-        <button type="button" onClick={() => navigate("/signup")}>Sign Up</button>
+        <button type="button" onClick={() => navigate("/")}>Go to Login</button>
       </form>
       <ToastContainer />
     </div>
   );
 };
 
-export default Login;
+export default SignUp;

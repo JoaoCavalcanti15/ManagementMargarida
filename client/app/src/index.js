@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/ManagementMargarida">
+    <BrowserRouter basename="/InflatableManagement">
       <App />
     </BrowserRouter>
   </React.StrictMode>,

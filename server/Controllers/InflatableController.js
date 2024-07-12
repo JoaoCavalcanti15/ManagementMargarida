@@ -34,3 +34,24 @@ module.exports.getAllInflatables = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+
+// Change state of inflatable by ID
+module.exports.changeInflatableState = async (req, res, next) => {
+  const { inflatableId } = req.params;
+
+  try {
+    const inflatable = await Inflatable.findById(inflatableId);
+    if (!inflatable) {
+      return res.status(404).json({ message: 'Inflatable not found' });
+    }
+
+    // Toggle between the two states (example logic, adjust as per your requirements)
+    inflatable.state = inflatable.state === 'FOR_DELIVERY' ? 'FOR_CLEANING' : 'FOR_DELIVERY';
+    await inflatable.save();
+
+    res.json(inflatable);
+  } catch (error) {
+    console.error('Error changing inflatable state:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};

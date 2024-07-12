@@ -4,23 +4,22 @@ const bcrypt = require("bcryptjs");
 
 module.exports.Signup = async (req, res, next) => {
   try {
-    const { username, password, createdAt } = req.body;
+    const { username, password, isAdmin } = req.body;
     const existingUser = await User.findOne({ username });
     if (existingUser) {
-      return res.json({ message: "User already exists" });
+      return res.json({ message: "User already exists", success: false });
     }
-    const user = await User.create({ username, password, createdAt });
+    const user = await User.create({ username, password, isAdmin, createdAt: new Date() });
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
       withCredentials: true,
       httpOnly: false,
     });
-    res
-      .status(201)
-      .json({ message: "User signed in successfully", success: true, user });
+    res.status(201).json({ message: "User signed up successfully", success: true, user });
     next();
   } catch (error) {
     console.error(error);
+    res.status(500).json({ message: "Internal server error", success: false });
   }
 };
 
@@ -51,7 +50,8 @@ module.exports.Login = async (req, res, next) => {
       httpOnly: false,
     });
 
-    res.status(200).json({ message: "User logged in successfully", success: true });
+    // Send back user object along with success message
+    res.status(200).json({ message: "User logged in successfully", success: true, user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error", success: false });

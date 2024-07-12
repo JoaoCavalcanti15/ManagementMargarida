@@ -7,6 +7,6 @@ We recommend the usage of the service Mongo Atlas for this purpose.
 To run the server, navigate to server directory on terminal and prompt 'npm start'. 
 
 # Client
-To run the client, navigate to server directory on terminal and prompt 'npm start'. 
+To run the client, navigate to server/app directory on terminal and prompt 'npm start'. 
 
 PS: For running both server and client you need to prompt 'npm install' before, otherwise you won't have node_modules in the project's folder.

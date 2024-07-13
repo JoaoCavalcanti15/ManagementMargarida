@@ -10,7 +10,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchInflatables = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/inflatables');
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/inflatables`);
         setInflatables(response.data);
       } catch (error) {
         console.error('Error fetching inflatables:', error);
@@ -23,7 +23,7 @@ const Dashboard = () => {
   const handleChangeState = async (inflatableId) => {
     try {
       console.log('Changing state for inflatableId:', inflatableId);
-      const response = await axios.patch(`http://localhost:4000/inflatable/${inflatableId}/change-state`);
+      const response = await axios.patch(`${process.env.REACT_APP_BACKEND_URL}/inflatable/${inflatableId}/change-state`);
       console.log('Response from server:', response.data);
   
       // Update local state with the updated inflatable

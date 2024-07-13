@@ -100,7 +100,7 @@ const RentalInsertion = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/rental",
+        `${process.env.REACT_APP_BACKEND_URL}/rental`,
         rentalInfo
       );
       console.log("Rental created:", response.data);

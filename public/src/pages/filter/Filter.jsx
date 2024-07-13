@@ -24,7 +24,7 @@ const Filter = () => {
   // Function to handle search
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/rental?name=${clientName}&inflatable=${inflatable}`);
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/rental?name=${clientName}&inflatable=${inflatable}`);
       setFilteredRentals(response.data);
     } catch (error) {
       console.error("Error fetching filtered rentals:", error);

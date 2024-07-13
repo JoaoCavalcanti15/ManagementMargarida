@@ -39,7 +39,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://margarida-insuflaveis-app.netlify.app/signup",
+        `${process.env.REACT_APP_BACKEND_URL}/signup`,
         inputValue
       );
   

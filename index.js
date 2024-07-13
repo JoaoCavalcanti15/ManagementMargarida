@@ -25,7 +25,9 @@ const corsOptions = {
 };
 
 // Apply CORS middleware to all routes
-app.use(cors(corsOptions));
+app.use(cors({
+   origin: 'https://margarida-insuflaveis-app.netlify.app'
+ }));
 
 app.use(cookieParser());
 app.use(express.json());

@@ -45,7 +45,7 @@ const RentalInsertion = () => {
   useEffect(() => {
     const fetchInflatables = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/inflatables");
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/inflatables`);
         setInflatables(response.data);
       } catch (error) {
         console.error("Error fetching inflatables:", error);

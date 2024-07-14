@@ -39,8 +39,7 @@ const Login = () => {
     try {
       const { data } = await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/login`,
-        inputValue,
-        { withCredentials: true }
+        inputValue
       );
   
       const { success, message, user } = data;

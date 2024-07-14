@@ -73,10 +73,9 @@ const RentalInsertion = () => {
     setErrors(newErrors);
   };
 
-  // Handler for form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Check if all required fields are filled
     let newErrors = {};
     if (!rentalInfo.name) newErrors.name = "Name is required";
@@ -89,15 +88,15 @@ const RentalInsertion = () => {
     if (!rentalInfo.price) newErrors.price = "Price is required";
     if (!rentalInfo.nif) newErrors.nif = "NIF is required";
     if (!rentalInfo.paymentmethod) newErrors.paymentmethod = "Payment method is required";
-
+  
     setErrors(newErrors);
-
+  
     // If there are errors, do not proceed with form submission
     if (Object.keys(newErrors).length > 0) {
       toast.error("Please fill in all required fields");
       return;
     }
-
+  
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/rental`,
@@ -105,13 +104,28 @@ const RentalInsertion = () => {
       );
       console.log("Rental created:", response.data);
       toast.success("Rental created successfully");
+  
+      // Reset form fields to their initial state
+      setRentalInfo({
+        name: "",
+        address: "",
+        email: "",
+        phonenumber: "",
+        deliverytime: "",
+        pickuptime: "",
+        inflatable: "",
+        price: 0,
+        nif: "",
+        paymentmethod: "",
+      });
+  
       setTimeout(() => {
         navigate("/rental-insertion");
       }, 1000);
     } catch (error) {
       console.error("Error creating rental:", error.response.data);
       toast.error("Error creating rental. Please try again.");
-
+  
       // Update errors state based on backend validation errors
       if (error.response.data.errors) {
         const apiErrors = error.response.data.errors;

@@ -1,0 +1,94 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: "Red Hat Text", sans-serif;
+  background-color: #afdbdf; /* Light gray background */
+}
+
+/* Main container styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full viewport height */
+  padding: 20px;
+  background-color: #afdbdf; /* Light gray background */
+}
+
+/* Header styles */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Logo styles */
+.logo {
+  width: 100px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Page name styles */
+.page-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333; /* Darker text color */
+  margin-top: 10px;
+}
+
+/* Form styles */
+form {
+  width: 100%;
+  max-width: 400px; /* Adjust as needed */
+  background-color: #fff;
+  border: 2px solid #205d74; /* Slightly darker blue border */
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form group styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Label styles */
+label {
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Input styles */
+input {
+  width: calc(100% - 20px); /* Adjust for padding */
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button styles */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #205d74; /* Main button color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover styles */
+button:hover {
+  background-color: #164352; /* Darker hover color */
+}

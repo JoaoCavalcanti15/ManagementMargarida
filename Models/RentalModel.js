@@ -1,48 +1,51 @@
+// Importing mongoose library
 const mongoose = require("mongoose");
 
+// Defining the rental schema
 const rentalSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "Name is required"],
+        required: [true, "Name is required"], // Name field is required
     },
     address: {
         type: String,
-        required: [true, "Address is required"],
+        required: [true, "Address is required"], // Address field is required
     },
     email: {
         type: String,
-        required: [true, "Email is required"],
+        required: [true, "Email is required"], // Email field is required
     },
     phonenumber: {
         type: Number,
-        required: [true, "Phone number is required"],
+        required: [true, "Phone number is required"], // Phone number field is required
     },
     deliverytime: {
         type: Date,
-        required: [true, "Deliver time required"],
+        required: [true, "Delivery time is required"], // Delivery time field is required
     },
     pickuptime: {
         type: Date,
-        required: [true, "Pickup time required"],
+        required: [true, "Pickup time is required"], // Pickup time field is required
     },
     inflatable: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Inflatable",
-        required: [true, "Inflatable is required"],
+        ref: "Inflatable", // Reference to the Inflatable model
+        required: [true, "Inflatable is required"], // Inflatable field is required
     },
     price: {
         type: Number,
-        required: [true, "Price required"],
+        required: [true, "Price is required"], // Price field is required
     },
     nif: {
         type: Number,
-        required: [true, "Nif required"],
+        required: [true, "NIF is required"], // NIF field is required
     },
     paymentmethod: {
         type: String,
-        enum: ["Transferência", "MB Way", "Dinheiro"],
-        required: [true, "Payment method is required"],
+        enum: ["Transferência", "MB Way", "Dinheiro"], // Payment method can be 'Transferência', 'MB Way', or 'Dinheiro'
+        required: [true, "Payment method is required"], // Payment method field is required
     }
 });
 
+// Exporting the Rental model
 module.exports = mongoose.model("Rental", rentalSchema, 'Rental');

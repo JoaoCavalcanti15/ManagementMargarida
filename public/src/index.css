@@ -1,13 +1,14 @@
+/* Styling for the header element */
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20vh;
-    background-color: #afdbdf; 
-  }
-  
-.logo {
-    width: auto;
-    height: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh; /* Set height of the header */
+  background-color: #afdbdf; /* Set background color of the header */
 }
 
+/* Styling for the logo element */
+.logo {
+  width: auto;
+  height: 100%; /* Set height of the logo to fill the header */
+}

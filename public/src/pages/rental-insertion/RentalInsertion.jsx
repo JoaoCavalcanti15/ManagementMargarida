@@ -15,8 +15,8 @@ const RentalInsertion = () => {
     address: "",
     email: "",
     phonenumber: "",
-    deliverytime: "",
-    pickuptime: "",
+    deliverytime: new Date().toISOString().slice(0, 16), 
+    pickuptime: new Date().toISOString().slice(0, 16), 
     inflatable: "",
     price: 0,
     nif: "",
@@ -118,8 +118,8 @@ const RentalInsertion = () => {
         address: "",
         email: "",
         phonenumber: "",
-        deliverytime: "",
-        pickuptime: "",
+        deliverytime: new Date().toISOString().slice(0, 16), // Default value for datetime-local input
+        pickuptime: new Date().toISOString().slice(0, 16), 
         inflatable: "",
         price: 0,
         nif: "",
@@ -200,7 +200,7 @@ const RentalInsertion = () => {
           <div className="form-group">
             <label htmlFor="phonenumber">Phone Number:</label>
             <input
-              type="tel"
+              type="number"
               id="phonenumber"
               name="phonenumber"
               value={rentalInfo.phonenumber}

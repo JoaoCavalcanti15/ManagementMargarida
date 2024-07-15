@@ -212,7 +212,7 @@ const RentalInsertion = () => {
           <div className="form-group">
             <label htmlFor="deliverytime">Delivery Time:</label>
             <input
-              type="text"
+              type="datetime-local"
               id="deliverytime"
               name="deliverytime"
               value={rentalInfo.deliverytime}
@@ -224,7 +224,7 @@ const RentalInsertion = () => {
           <div className="form-group">
             <label htmlFor="pickuptime">Pickup Time:</label>
             <input
-              type="text"
+              type="datetime-local"
               id="pickuptime"
               name="pickuptime"
               value={rentalInfo.pickuptime}

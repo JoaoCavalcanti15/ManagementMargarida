@@ -4,9 +4,9 @@ This project does not have a pre-defined database. For it to function you should
 We recommend the usage of the service Mongo Atlas for this purpose.
 
 # Server
-To run the server, navigate to server directory on terminal and prompt 'npm start'. 
+To run the server, navigate to root directory on terminal and prompt 'npm start'. 
 
 # Client
-To run the client, navigate to server/app directory on terminal and prompt 'npm start'. 
+To run the client, navigate to root/public directory on terminal and prompt 'npm start'. 
 
 PS: For running both server and client you need to prompt 'npm install' before, otherwise you won't have node_modules in the project's folder.

@@ -131,6 +131,11 @@ const RentalInsertion = () => {
     navigate("/");
   };
 
+  // Navigate to filters page
+  const goToFilters = () => {
+    navigate("/filters");
+  };
+
   return (
     <div className="container">
       <div className="header">
@@ -140,6 +145,9 @@ const RentalInsertion = () => {
         </button>
         {/* Logo */}
         <img src={logo} alt="Logo" className="logo" />
+        <button className="button" onClick={goToFilters}>
+          Rental Insertion
+        </button>
       </div>
       <div className="form-container">
         {/* Title */}

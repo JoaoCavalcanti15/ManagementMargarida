@@ -200,7 +200,7 @@ const RentalInsertion = () => {
           <div className="form-group">
             <label htmlFor="phonenumber">Phone Number:</label>
             <input
-              type="number"
+              type="tel"
               id="phonenumber"
               name="phonenumber"
               value={rentalInfo.phonenumber}

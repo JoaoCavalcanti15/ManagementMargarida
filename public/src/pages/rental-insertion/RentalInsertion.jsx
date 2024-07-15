@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import logo from "../images/logo.jpg";
 import { ToastContainer, toast } from "react-toastify";
-import '../styles.css'; // Import common styles
-
 import "react-toastify/dist/ReactToastify.css";
+import "../styles.css"; // Import common styles
+import logo from "../images/logo.jpg";
 
 const RentalInsertion = () => {
   const navigate = useNavigate();
@@ -66,24 +65,16 @@ const RentalInsertion = () => {
     let newErrors = { ...errors };
     switch (name) {
       case "name":
-        newErrors.name =
-          value.length < 5 ? "Name must be 5 characters long!" : "";
+        newErrors.name = value.length < 5 ? "Name must be 5 characters long!" : "";
         break;
       case "address":
-        newErrors.address =
-          value.length < 5 ? "Address must be 5 characters long!" : "";
+        newErrors.address = value.length < 5 ? "Address must be 5 characters long!" : "";
         break;
       case "email":
-        newErrors.email = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(
-          value
-        )
-          ? ""
-          : "Email is not valid!";
+        newErrors.email = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(value) ? "" : "Email is not valid!";
         break;
       case "phonenumber":
-        newErrors.phonenumber = /^[1-9][0-9]{8}$/.test(value)
-          ? ""
-          : "Phone number is not valid!";
+        newErrors.phonenumber = /^[1-9][0-9]{8}$/.test(value) ? "" : "Phone number is not valid!";
         break;
       case "deliverytime":
         newErrors.deliverytime = value.length < 5 ? "This field is required!" : "";
@@ -120,7 +111,23 @@ const RentalInsertion = () => {
       // Send rentalInfo to backend for insertion
       await axios.post(`${process.env.REACT_APP_BACKEND_URL}/rental`, rentalInfo);
       toast.success("Rental inserted successfully!");
-      navigate("/filter"); // Navigate to filter page on success
+
+      // Clear form fields upon successful submission
+      setRentalInfo({
+        name: "",
+        address: "",
+        email: "",
+        phonenumber: "",
+        deliverytime: "",
+        pickuptime: "",
+        inflatable: "",
+        price: 0,
+        nif: "",
+        paymentmethod: "",
+      });
+
+      // Navigate to filter page on success
+      navigate("/filter");
     } catch (error) {
       toast.error("Failed to insert rental.");
     }
@@ -133,7 +140,7 @@ const RentalInsertion = () => {
 
   // Navigate to filters page
   const goToFilters = () => {
-    navigate("/filters");
+    navigate("/filter");
   };
 
   return (
@@ -146,7 +153,7 @@ const RentalInsertion = () => {
         {/* Logo */}
         <img src={logo} alt="Logo" className="logo" />
         <button className="button" onClick={goToFilters}>
-          Rental Insertion
+          Filters
         </button>
       </div>
       <div className="form-container">
@@ -292,3 +299,8 @@ const RentalInsertion = () => {
 };
 
 export default RentalInsertion;
+
+
+
+
+

@@ -15,11 +15,25 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh; /* Full viewport height */
-  padding: 20px;
+  margin: 50px;
   background-color: #afdbdf; /* Light gray background */
+  text-align: center;
+}
+
+/* Form styles */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: center;
+}
+
+/* Form styles */
+#formulario {
+  padding-left: 80px;
+  padding-right: 80px;
+  align-self: center;
 }
 
 /* Header styles */
@@ -28,9 +42,13 @@ body {
   margin-bottom: 20px;
 }
 
+.header button {
+  margin: 4vh;
+}
+
 /* Logo styles */
 .logo {
-  width: 100px; /* Adjust size as needed */
+  width: 150px; /* Adjust size as needed */
   height: auto; /* Maintain aspect ratio */
 }
 
@@ -45,7 +63,7 @@ body {
 /* Form styles */
 form {
   width: 100%;
-  max-width: 400px; /* Adjust as needed */
+  max-width: 600px; /* Adjust as needed */
   background-color: #fff;
   border: 2px solid #205d74; /* Slightly darker blue border */
   border-radius: 10px;
@@ -68,17 +86,17 @@ label {
 
 /* Input styles */
 input {
-  width: calc(100% - 20px); /* Adjust for padding */
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 40vh;
 }
 
 /* Button styles */
 button {
-  width: 100%;
+  width: 15vh;
   padding: 10px;
   background-color: #205d74; /* Main button color */
   color: #fff;
@@ -92,3 +110,4 @@ button {
 button:hover {
   background-color: #164352; /* Darker hover color */
 }
+

@@ -159,7 +159,7 @@ const RentalInsertion = () => {
       <div className="form-container">
         {/* Title */}
         <h2 className="title">Rental Insertion</h2>
-        <form onSubmit={handleSubmit}>
+        <form id="formulario" onSubmit={handleSubmit}>
           {/* Name input */}
           <div className="form-group">
             <label htmlFor="name">Name:</label>

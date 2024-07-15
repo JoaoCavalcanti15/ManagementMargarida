@@ -86,7 +86,7 @@ const RentalInsertion = () => {
         newErrors.inflatable = value.length < 5 ? "This field is required!" : "";
         break;
       case "price":
-        newErrors.price = value.length < 5 ? "This field is required!" : "";
+        newErrors.price = value.lenght < 2 ? "This field is required!" : "";
         break;
       case "nif":
         newErrors.nif = value.length < 5 ? "This field is required!" : "";
@@ -277,13 +277,17 @@ const RentalInsertion = () => {
           {/* Payment method input */}
           <div className="form-group">
             <label htmlFor="paymentmethod">Payment Method:</label>
-            <input
-              type="text"
+            <select
               id="paymentmethod"
               name="paymentmethod"
               value={rentalInfo.paymentmethod}
               onChange={handleOnChange}
-            />
+            >
+              <option value="">Select a payment method</option>
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Transferência">Transferência</option>
+              <option value="MB Way">MB Way</option>
+            </select>
             {errors.paymentmethod && <p className="error">{errors.paymentmethod}</p>}
           </div>
           {/* Submit button */}

@@ -1,5 +1,5 @@
 const User = require("../Models/UserModel");
-const { createSecretToken } = require("../util/SecretToken");
+const { generateToken } = require("../util/SecretToken");
 const bcrypt = require("bcryptjs");
 
 module.exports.Signup = async (req, res, next) => {
@@ -10,7 +10,7 @@ module.exports.Signup = async (req, res, next) => {
       return res.json({ message: "User already exists", success: false });
     }
     const user = await User.create({ username, password, isAdmin, createdAt: new Date() });
-    const token = createSecretToken(user._id);
+    const token = generateToken(user._id);
     res.cookie("token", token, {
       withCredentials: true,
       httpOnly: false,
@@ -34,24 +34,25 @@ module.exports.Login = async (req, res, next) => {
     const user = await User.findOne({ username });
 
     if (!user) {
-      return res.status(401).json({ message: 'Incorrect password or username' });
+      return res.status(401).json({ message: 'Incorrect username or password' });
     }
 
     const auth = await bcrypt.compare(password, user.password);
 
     if (!auth) {
-      return res.status(401).json({ message: 'Incorrect password or username' });
+      return res.status(401).json({ message: 'Incorrect username or password' });
     }
 
-    const token = createSecretToken(user._id);
-    
-    res.cookie("token", token, {
-      withCredentials: true,
-      httpOnly: false,
-    });
+    const token = generateToken(user._id); // Generate token
 
-    // Send back user object along with success message
-    res.status(200).json({ message: "User logged in successfully", success: true, user });
+    // If you want to use cookies for storing tokens
+    // res.cookie("token", token, {
+    //   withCredentials: true,
+    //   httpOnly: false, // Consider using httpOnly: true for better security
+    // });
+
+    // Send back the token in the response body
+    res.status(200).json({ message: "User logged in successfully", success: true, token, user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error", success: false });

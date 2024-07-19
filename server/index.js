@@ -22,6 +22,11 @@ const corsOptions = {
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Allow these HTTP methods
   allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
   credentials: true, // Enable credentials (cookies, authorization headers) cross-origin
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "Access-Control-Allow-Credentials",
+  ],
 };
 
 // Apply CORS middleware to all routes

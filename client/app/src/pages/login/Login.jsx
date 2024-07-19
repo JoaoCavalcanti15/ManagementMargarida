@@ -22,7 +22,6 @@ const Login = () => {
   };
 
   const handleError = (err) => {
-    console.error(err);
     toast.error(err, {
       position: "bottom-left",
     });
@@ -31,6 +30,7 @@ const Login = () => {
   const handleSuccess = (msg) => {
     toast.success(msg, {
       position: "bottom-left",
+      autoClose: 2000, // Duration in milliseconds (3 seconds)
     });
   };
 
@@ -40,19 +40,23 @@ const Login = () => {
       const { data } = await axios.post(
         "http://localhost:4000/login",
         inputValue,
-        { withCredentials: true }
+        { withCredentials: true } // Ensure this matches how your server expects credentials
       );
-  
-      const { success, message, user } = data;
+
+      console.log(data); // Debugging: log response data to see if token and user are as expected
+
+      const { success, message, token, user } = data;
       if (success) {
+        localStorage.setItem("token", token);
         handleSuccess(message);
+
         setTimeout(() => {
           if (user.isAdmin) {
             navigate("/rental-insertion");
           } else {
             navigate("/dashboard");
           }
-        }, 1000);
+        }, 2000);
       } else {
         handleError(message);
       }
